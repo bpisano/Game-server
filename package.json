@@ -1,0 +1,28 @@
+{
+  "name": "game-server",
+  "version": "1.0.0",
+  "description": "A test multiplayer game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bpisano/Game-server.git"
+  },
+  "author": "bpisano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bpisano/Game-server/issues"
+  },
+  "homepage": "https://github.com/bpisano/Game-server#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ws": "^7.2.3"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.1",
+    "utf-8-validate": "^5.0.2"
+  }
+}
