@@ -16,10 +16,26 @@ class Game {
         this.socketRoom.on("connection", (socket) => {
             console.log(`Client connected to game ${this.id}`)
 
-            socket.on("playerDidUpdatePosition", (playerId, xPosition, yPosition, rotation) => {
-                this.performPlayerPositionUpdate(playerId, (xPosition, yPosition), rotation)
+            this.socket = socket
+
+            this.socket.on("playerDidUpdatePosition", (playerId, xPosition, yPosition, rotation) => {
+                this.__performPlayerPositionUpdate(playerId, xPosition, yPosition, rotation)
+            })
+
+            this.socket.on("playerDidFire", (playerId) => {
+                this.socketRoom.emit("playerDidFire", playerId)
             })
         })
+    }
+
+    __performPlayerPositionUpdate(playerId, xPosition, yPosition, rotation) {
+        this.socketRoom.emit("playerDidUpdatePosition", playerId, xPosition, yPosition, rotation)
+        console.log(playerId, xPosition, yPosition, rotation)
+    }
+
+    addPlayer(newPlayer) {
+        this.players[newPlayer.id] = newPlayer
+        this.socketRoom.emit("playerDidJoinGame", newPlayer.id, newPlayer.username)
     }
 
     toJson() {
@@ -29,10 +45,6 @@ class Game {
                 return this.players[playerId].toJson()
             })
         }
-    }
-
-    performPlayerPositionUpdate(playerId, position, rotation) {
-        console.log(playerId, position[0], position[1], rotation)
     }
 
 }
