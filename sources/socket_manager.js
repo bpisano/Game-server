@@ -1,6 +1,12 @@
 class SocketManager {
 
     static configureSocketServer(server) {
+        SocketManager.spaceshipDidConnectEvent = "spaceshipDidConnect"
+        SocketManager.spaceshipDidDisconnectEvent = "spaceshipDidDisconnect"
+        SocketManager.spaceshipDidUpdatePositionEvent = "spaceshipDidUpdatePosition"
+        SocketManager.spaceshipDidFireEvent = "spaceshipDidFire"
+        SocketManager.spaceshipHasBeenHitEvent = "spaceshipHasBeenHit"
+
         SocketManager.io = require("socket.io")(server)
         SocketManager.io.on("connection", (socket) => {
             console.log("Client connected")

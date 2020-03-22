@@ -15,6 +15,7 @@ class GameManager {
 
             const newPlayer = new Player(playerId, playerUsername)
             const newGame = new Game(gameId, [newPlayer])
+            newGame.addPlayer(newPlayer)
 
             GameManager.createActiveGamesIfNeeded()
             GameManager.activeGames[gameId] = newGame
