@@ -3,8 +3,6 @@ class Player {
     constructor(id, username) {
         this.id = id
         this.username = username
-        this.position = {"x": 0, "y": 0}
-        this.orientation = 0
     }
 
     toJson() {

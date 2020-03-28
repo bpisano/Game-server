@@ -6,6 +6,9 @@ class SocketManager {
         SocketManager.spaceshipDidUpdatePositionEvent = "spaceshipDidUpdatePosition"
         SocketManager.spaceshipDidFireEvent = "spaceshipDidFire"
         SocketManager.spaceshipHasBeenHitEvent = "spaceshipHasBeenHit"
+        SocketManager.spaceshipHasBeenKilledEvent = "spaceshipHasBeenKilled"
+        SocketManager.spaceshipTimerBeforeRespawnEvent = "spaceshipTimerBeforeRespawn"
+        SocketManager.spaceshipDidRespawnEvent = "spaceshipDidRespawn"
 
         SocketManager.io = require("socket.io")(server)
         SocketManager.io.on("connection", (socket) => {
