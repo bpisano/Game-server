@@ -18,7 +18,7 @@ class Game {
         this.socketRoom.on("connection", (socket) => {
             console.log(`Client connected to game ${this.id}`)
 
-            socket.on("disconnected", () => {
+            socket.on(this.socketManager.spaceshipDidDisconnectEvent, () => {
                 this.__handlePlayerDidDisconnect(socket)
             })
 
